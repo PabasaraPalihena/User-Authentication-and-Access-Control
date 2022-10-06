@@ -1,15 +1,13 @@
 import { useState } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import styles from "./styles.css";
-import { useHistory } from "react-router-dom";
+import styles from "./styles.module.css";
 
 const Login = () => {
   const API = process.env.REACT_APP_API;
 
   const [data, setData] = useState({ userName: "", password: "" });
   const [error, setError] = useState("");
-  const location = useHistory();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -22,8 +20,6 @@ const Login = () => {
       .then((res) => {
         alert("Logged In");
         localStorage.setItem("token", res.data.data);
-        window.location = "/";
-        console.log(res.data.data);
       })
       .catch((err) => {
         console.log(err);
@@ -61,7 +57,7 @@ const Login = () => {
           </form>
         </div>
         <div className={styles.right}>
-          <h1>Don't Have an Account?</h1>
+          <h2>Don't Have an Account?</h2>
           <Link to="/signup">
             <button type="button" className={styles.white_btn}>
               Sign Up

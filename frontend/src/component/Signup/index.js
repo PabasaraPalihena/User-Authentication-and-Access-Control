@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Axios from "axios";
 import { Link, BrowserRouter } from "react-router-dom";
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 const API = process.env.REACT_APP_API;
 
 const Signup = () => {
@@ -21,7 +21,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    Axios.post(`${API}/api/users`, data)
+    Axios.post(`http://localhost:3000/api/users`, data)
       .then((res) => {
         alert("Registered");
         localStorage.setItem("token", res.data.data);

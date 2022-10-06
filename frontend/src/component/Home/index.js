@@ -1,4 +1,3 @@
-import styles from "/styles.css";
 const Home = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -6,14 +5,12 @@ const Home = () => {
   };
 
   return (
-    <div className={styles.home_container}>
+    <div>
       <h1>
         <center>Welcome Name</center>
       </h1>
       <br />
-      <button className={styles.white_btn} onClick={handleLogout}>
-        Logout
-      </button>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };
